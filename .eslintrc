@@ -1,0 +1,6 @@
+// .eslintrc
+{
+	"extends": ["plugin:vue/vue3-recommended","plugin:tailwindcss/recommended","plugin:prettier/recommended"],
+	"parser": "vue-eslint-parser",
+	"rules": {}
+}
