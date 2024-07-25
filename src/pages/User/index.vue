@@ -1,9 +1,10 @@
 <template>
-	<div class="my-20" v-if="city">
-		<div class="ml-5 flex justify-center text-3xl ">Hi,{{ name }}
+	<div class="my-20">
+		<div class="ml-5 flex justify-center text-3xl">
+			Hi,{{ name }}
 			<Icon customIcon="meteocons:star-fill" />
 		</div>
-		<p class="mt-5 text-center">现在是{{formatDate(Date.now())}}</p>
+		<p class="mt-5 text-center">现在是{{ formatDate(Date.now()) }}</p>
 		<p class="flex justify-center my-5">
 			您在{{ city }} 天气{{ weather }} 温度为{{ degree }}&deg;C
 		</p>
@@ -13,24 +14,24 @@
 </template>
 
 <script setup lang="ts">
-import { request,formatDate } from '@/utils';
+import { request, formatDate } from "@/utils";
 
-const route = useRoute()
-const name =  route.params.username
+const route = useRoute();
+const name = route.params.username;
 
-const city = ref('')
-const weather = ref('')
-const degree = ref('')
+const city = ref("");
+const weather = ref("");
+const degree = ref("");
 
-onMounted(()=>{
-	request({
-		method:'get',
-		url:'https://api.oioweb.cn/api/weather/GetWeather'
-	}).then(data=>{
-		const {result} = data as any
-		city.value = result.city.Province + result.city.City
-		weather.value = result.condition.day_weather
-		degree.value = result.condition.max_degree
-	})
-})
+onMounted(async () => {
+	await request({
+		method: "get",
+		url: "https://api.oioweb.cn/api/weather/GetWeather",
+	}).then((data) => {
+		const { result } = data as any;
+		city.value = result.city.Province + result.city.City;
+		weather.value = result.condition.day_weather;
+		degree.value = result.condition.max_degree;
+	});
+});
 </script>

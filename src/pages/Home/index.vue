@@ -10,7 +10,6 @@
 		<Input v-model="dialogState"/>
 		<span class="flex justify-center mt-10">[ - Home Page - ]</span>
 	</div>
-	<!-- <button @click="changState">open dialog</button> -->
 </template>
 
 <script setup>

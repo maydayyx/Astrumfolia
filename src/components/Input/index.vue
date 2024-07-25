@@ -7,7 +7,6 @@
 			placeholder="Your name"
 		/>
 		<a
-			href="#"
 			@click="handleClick"
 			class="w-10 h-10 flex justify-center items-center bg-[skyblue] rounded-xl ml-3"
 			>GO</a
@@ -25,7 +24,7 @@ defineProps({
 });
 const emit = defineEmits(["update:modelValue"]);
 const username = ref("");
-const router = useRouter();
+const r = useRouter();
 let timer: NodeJS.Timeout | null = null;
 const handleClick = () => {
 	if (!username.value) {
@@ -35,10 +34,11 @@ const handleClick = () => {
 		}, 2000);
 		return
 	}else {
+		console.log(`Navigating to /user/${username.value}`);
+		r.push(`/user/${username.value}`);
 		if (timer !== null) {
 			clearTimeout(timer);
 		}
-		router.push(`/user/${username.value}`);
 	}
 };
 

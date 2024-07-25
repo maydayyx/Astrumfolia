@@ -13,7 +13,8 @@ const routes = [
 				path:'/user/:username',
 				name:'user',
 				component: () => import("@/pages/User/index.vue")
-			}
+			},
+			
 		],
 	},
 	{

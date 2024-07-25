@@ -13,6 +13,7 @@ declare module 'vue' {
     Icon: typeof import('./../src/components/Icon/index.vue')['default']
     Input: typeof import('./../src/components/Input/index.vue')['default']
     Layout: typeof import('./../src/layout/index.vue')['default']
+    LoadAnimation: typeof import('./../src/components/LoadAnimation/index.vue')['default']
     Logo: typeof import('./../src/components/Logo/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

@@ -1,4 +1,4 @@
 import {request} from './request'
 import { formatDate } from './time'
-
-export {request,formatDate}
+import  {emitter} from'./emitter'
+export {request,formatDate,emitter}
