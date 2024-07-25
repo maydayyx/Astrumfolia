@@ -17,7 +17,7 @@ export default defineConfig({
     Components({
       deep:true,
       dts:'types/components.d.ts',
-      dirs:['./src/components']
+      dirs:['./src/components','./src/layout']
     })
   ],
   css: {

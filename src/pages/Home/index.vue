@@ -1,26 +1,31 @@
 <template>
-	<div class="flex flex-col justify-center items-center font-mono">
-		<h2 class="text-2xl tracking-widest italic">Just a template for vue3 + vite + ts</h2>
-		<div class="flex flex-row justify-between items-center w-[200px] my-10">
-			<Icon customIcon="simple-icons:vite" customSize="60"/>
-			<Icon customIcon="bx:plus" customSize="30"/>
-			<Icon customIcon="ri:vuejs-fill" customSize="60" />
-		</div>
-		<Footer />
-		<span>[ - Home Page - ]</span>
+	<div class="my-20 relative">
+		<Dialog
+			:state="dialogState"
+			class="animate-pulse absolute top-[-50px] left-0"
+		>
+			<template #content>please enter your name</template>
+		</Dialog>
+		<Logo />
+		<Input v-model="dialogState"/>
+		<span class="flex justify-center mt-10">[ - Home Page - ]</span>
 	</div>
+	<!-- <button @click="changState">open dialog</button> -->
 </template>
 
-<script setup lang="ts"></script>
+<script setup>
+const dialogState = ref(false);
+</script>
 
-
-
-
-
-
-
-
-
-
-
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+	transition: all 0.5s ease;
+	transform-origin: top center;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+</style>

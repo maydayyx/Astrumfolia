@@ -1,6 +1,6 @@
 <template>
     <button @click="handleChange">
-        <Icon customIcon="iconamoon:mode-dark"/>
+        <Icon :customIcon="themeStore==='dark'?'iconamoon:mode-dark':'iconamoon:mode-light'"/>
     </button>
 </template>
 
@@ -10,10 +10,7 @@ import { useColorMode } from '@vueuse/core'
 const { system: themeSystem, store: themeStore } = useColorMode();
 
 const handleChange = () => {
-    console.log(123);
-    
     themeStore.value = themeStore.value === 'dark' ? 'light' : 'dark'
-
 }
 </script>
 

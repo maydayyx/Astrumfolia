@@ -1,5 +1,5 @@
 <template>
-	<div class="w-[130px] h-[50px] my-[30px] flex justify-between items-center">
+	<div class="my-10 flex justify-between items-center">
 		<button class="hover:scale-50 cursor-pointer" >
 			<Icon customIcon="typcn:plus-outline" customSize="30" @click="increment" />
 		</button>
