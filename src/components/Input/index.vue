@@ -34,7 +34,6 @@ const handleClick = () => {
 		}, 2000);
 		return
 	}else {
-		console.log(`Navigating to /user/${username.value}`);
 		r.push(`/user/${username.value}`);
 		if (timer !== null) {
 			clearTimeout(timer);
