@@ -9,14 +9,14 @@ const router = createRouter({
 
 const globalVistiteRoutes = new Set();
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
 	if (!globalVistiteRoutes.has(to.path)) {
 		emitter.emit("loading", true);
 	}
 	next();
 });
 
-router.afterEach((to, from) => {
+router.afterEach((to, _) => {
 	globalVistiteRoutes.add(to.path);
 	emitter.emit("loading", false);
 });

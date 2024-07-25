@@ -4,7 +4,7 @@
 			Hi,{{ name }}
 			<Icon customIcon="meteocons:star-fill" />
 		</div>
-		<p class="mt-5 text-center">现在是{{ formatDate(Date.now()) }}</p>
+		<p class="mt-5 text-center">现在是{{ formatDate(Now) }}</p>
 		<p class="flex justify-center my-5">
 			您在{{ city }} 天气{{ weather }} 温度为{{ degree }}&deg;C
 		</p>
@@ -22,7 +22,9 @@ const name = route.params.username;
 const city = ref("");
 const weather = ref("");
 const degree = ref("");
+const Now = ref()
 
+let timer = null;
 onMounted(async () => {
 	await request({
 		method: "get",
@@ -33,5 +35,12 @@ onMounted(async () => {
 		weather.value = result.condition.day_weather;
 		degree.value = result.condition.max_degree;
 	});
+	timer = setInterval(() => {
+		Now.value = new Date()
+	}, 1000);
 });
+onUnmounted(() => {
+	clearInterval(timer)
+})
+
 </script>
