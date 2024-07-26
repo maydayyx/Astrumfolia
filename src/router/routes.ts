@@ -1,3 +1,5 @@
+import { Component } from "vue";
+
 const routes = [
 	{
 		path: "/",
