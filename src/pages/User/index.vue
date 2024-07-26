@@ -24,7 +24,7 @@ const weather = ref("");
 const degree = ref("");
 const Now = ref()
 
-let timer = null;
+let timer: NodeJS.Timeout | null = null;
 onMounted(async () => {
 	await request({
 		method: "get",
@@ -40,7 +40,9 @@ onMounted(async () => {
 	}, 1000);
 });
 onUnmounted(() => {
-	clearInterval(timer)
+	if(timer !== null){
+		clearInterval(timer);
+	}
 })
 
 </script>
